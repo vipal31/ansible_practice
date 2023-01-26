@@ -1,0 +1,11 @@
+---
+- name: prompt for the variable
+  hosts: localhost
+  gather_facts: false
+  vars_prompt:
+        - name: username
+          private: false
+  tasks:
+    - name: Test vars_prompt
+      debug:
+        msg: "Hello, {{username}}"

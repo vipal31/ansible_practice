@@ -1,0 +1,10 @@
+---
+ - name: second play
+   hosts: all
+   tasks:
+      - name: get hostname
+        command: "hostname"
+        register: hostnameoutput
+      - name: print output
+        debug:
+          var: hostnameoutput.stdout_lines

@@ -1,0 +1,17 @@
+-
+   hosts: localhost
+   vars:
+     dict1:
+       dict_key: this is a dictionary value
+
+   tasks:
+     - name: test1
+       debug:
+         msg: "{{dict1}}"
+     - name: test2
+       debug:
+         msg: "{{dict1.dict_key}}"
+
+     - name: test3
+       debug:
+         msg: "{{dict1['dict_key']}}"

@@ -1,0 +1,9 @@
+---
+ - name: first play
+   hosts: all
+   tasks:
+     - name: create a directory
+       command: "uptime"
+       register: uptimeoutput
+     - debug:
+         var: uptimeoutput.stdout_lines

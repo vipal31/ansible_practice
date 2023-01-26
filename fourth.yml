@@ -1,0 +1,10 @@
+---
+ - name: fourth play
+   hosts: all
+   become: true
+   tasks:
+     - name: install apache2 package
+       apt:
+        name: bind9
+        state: absent
+

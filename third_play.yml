@@ -1,0 +1,7 @@
+--- 
+ - name: third_play
+   hosts: all
+   tasks:
+     - debug: 
+         var: ansible_facts["nodename"] | type_debug
+
