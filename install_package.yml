@@ -1,0 +1,10 @@
+---
+- name: install the packages
+  hosts: node2
+  tasks:
+    - name: install epel-release
+      dnf:
+       name: epel-release
+       update_cache: yes
+       state: latest
+      when: ansible_distribution == 'Rocky'

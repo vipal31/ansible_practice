@@ -1,0 +1,32 @@
+---
+- name: install nginx on ubuntu and rocky
+  hosts: Labs
+  become: yes
+  tasks:
+    - name: install nginx on ubuntu
+      apt:
+       name: nginx 
+       state: latest
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: install nginx on Rocky
+      dnf:
+         name: nginx
+         state: latest
+      when: ansible_distribution == 'Rocky'
+
+
+    - name: restart nginx
+      service:
+       name: nginx
+       state: restarted
+      notify:
+       - check HTTP service
+
+
+  handlers:
+    - name: check HTTP service
+      uri:
+        url: http://{{ ansible_default_ipv4.address}}
+        status_code: 200
+   
